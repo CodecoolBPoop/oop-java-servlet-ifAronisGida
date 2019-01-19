@@ -5,7 +5,7 @@ public class Item {
     private String name;
     private float price;
 
-    private static int counter;
+    private static int counter = 0;
 
     public Item(int id, String name, float price) {
         this.id = ++counter;
