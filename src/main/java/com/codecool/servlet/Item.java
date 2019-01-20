@@ -7,6 +7,22 @@ public class Item {
 
     private static int counter = 0;
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
     public Item(String name, float price) {
         this.id = ++counter;
         this.name = name;
