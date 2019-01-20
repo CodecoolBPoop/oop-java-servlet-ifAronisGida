@@ -21,6 +21,7 @@ public class ShoppingCartServlet extends HttpServlet {
         for (Item item: shoppingCartList) {
             System.out.println(item.toString());
         }
+        System.out.println("---");
     }
 
     public static void removeFromCart(int id) {
