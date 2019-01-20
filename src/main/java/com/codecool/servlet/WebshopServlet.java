@@ -41,7 +41,8 @@ public class WebshopServlet extends HttpServlet {
 
        String itemId = request.getParameter("item_id");
        if (itemId != null) {
-           
+           int id = Integer.parseInt(itemId);
+           ShoppingCartServlet.addToCart(id);
        }
 
        out.println(

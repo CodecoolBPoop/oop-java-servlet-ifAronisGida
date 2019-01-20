@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 @WebServlet (name = "Shopping Cart", urlPatterns = {"/shoppingCart"})
 public class ShoppingCartServlet extends HttpServlet {
@@ -16,6 +17,9 @@ public class ShoppingCartServlet extends HttpServlet {
             if (item.getId() == id) {
                 shoppingCartList.add(listSize, item);
             }
+        }
+        for (Item item: shoppingCartList) {
+            System.out.println(item.toString());
         }
     }
 
