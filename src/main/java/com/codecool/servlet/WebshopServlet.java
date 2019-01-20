@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class WebshopServlet extends HttpServlet {
 
     @Override
-    public void init() {
+    public void init() throws ServletException {
         ItemStore.addItem(new Item("Bible", 9999));
         ItemStore.addItem(new Item("iPhone", 10));
         ItemStore.addItem(new Item("Cocaine", 1000));
@@ -25,5 +25,33 @@ public class WebshopServlet extends HttpServlet {
 
        PrintWriter out = response.getWriter();
        String title = "Items to buy!!";
+
+       StringBuffer itemBuffer = new StringBuffer();
+       for (Item item: ItemStore.itemList) {
+           itemBuffer.append("<tr><td>");
+           itemBuffer.append(item.getName());
+           itemBuffer.append("</td><td>");
+           itemBuffer.append(item.getPrice());
+           itemBuffer.append("</td><td>");
+           itemBuffer.append("<a href=\"webshop?item_id=" + item.getId() + "\">");
+           itemBuffer.append("Buy");
+           itemBuffer.append("</a>");
+           itemBuffer.append("</td></tr>");
+       }
+
+       String itemId = request.getParameter("item_id");
+       if (itemId != null) {
+           
+       }
+
+       out.println(
+               "<html>\n" +
+               "<head><title>" + title + "</title></head>\n" +
+               "<body>\n" +
+               "<h1 align = \"center\">" + title + "</h1>\n" +
+               "<table>\n" +
+               itemBuffer.toString() +
+               "</table></body></html>"
+       );
    }
 }
